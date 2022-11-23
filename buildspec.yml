@@ -2,20 +2,20 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 16
+      java: corretto19
   pre_build:
     commands:
       - echo installing
   build:
     commands:
       - echo Build started on `date`
-      - cd ./auth && npm init
-      - cd ../gateway && npm init
+      - mvn install
   post_build:
     commands:
       - echo build completed
 artifacts:
   files:
     - appspec.yml
+    - target/my-app.jar
     - script/
     - '**/*'
