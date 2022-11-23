@@ -2,7 +2,7 @@ version: 0.0
 os: linux 
 files:
   - source: /
-    destination: /var/www/microservice
+    destination: /var/www/hello-world-java
 file_exists_behavior: OVERWRITE
 hooks:
   BeforeInstall:
