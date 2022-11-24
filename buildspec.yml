@@ -6,16 +6,20 @@ phases:
   pre_build:
     commands:
       - echo installing
+      - apt-get install -y maven
+      - apt-get install -y gradle
   build:
     commands:
       - echo Build started on `date`
-      - mvn install
+      - echo Gradle Build
+      - chmod +x gradlew
+      - ./gradlew build
   post_build:
     commands:
       - echo build completed
 artifacts:
   files:
     - appspec.yml
-    - target/my-app.jar
+    - target/*.jar
     - script/
     - '**/*'
